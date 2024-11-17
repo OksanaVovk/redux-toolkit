@@ -1,11 +1,14 @@
-import Cart from './components/Cart/Cart';
-import Layout from './components/Layout/Layout';
-import Products from './components/Shop/Products';
+import { useSelector } from "react-redux";
+import { selectors } from "./store/selectors";
+import Cart from "./components/Cart/Cart";
+import Layout from "./components/Layout/Layout";
+import Products from "./components/Shop/Products";
 
 function App() {
+  const cartIsVisible = useSelector(selectors.selectCartIsVisible);
   return (
     <Layout>
-      <Cart />
+      {cartIsVisible && <Cart />}
       <Products />
     </Layout>
   );
